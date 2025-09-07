@@ -1,0 +1,791 @@
+<?xml version="1.0"?>
+<robot name="kimm_wheel_legged_robot">
+  <material name="silver">
+    <color rgba="0.700 0.700 0.700 1.000"/>
+  </material>
+
+  <link name="base_aligned"> </link>
+  <joint name="base_link_to_base_aligned" type="fixed">
+    <parent link="base_aligned"/>
+    <child  link="base_link"/>
+    <origin rpy="1.5708 0 -1.5708" xyz="0 0 0"/>
+  </joint>
+
+
+  <!-- Links -->
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="2.1438791285322582e-08 0.04053540705238699 -0.0010758453861736091"/>
+      <mass value="1.0607603720590608"/>
+      <inertia ixx="0.002944" ixy="1e-06" ixz="0.0" iyy="0.000997" iyz="-4.6e-05" izz="0.002253"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="torso_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0004970805514740782 0.22773080385544286 -0.00010026971208769306"/>
+      <mass value="57.103267228355826"/>
+      <inertia ixx="0.954207" ixy="0.003408" ixz="-0.000545" iyy="0.296511" iyz="-0.001045" izz="1.087331"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0 -0.0862 -0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/torso_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 -0.0862 -0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/torso_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hip_roll_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.03032913107746091 2.474453244607486e-05 -0.0001940144294897979"/>
+      <mass value="4.081497564698486"/>
+      <inertia ixx="0.005573" ixy="-1e-06" ixz="1.9e-05" iyy="0.004352" iyz="-4e-06" izz="0.004393"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.0093 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_roll_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0093 -0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_roll_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_hip_roll_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.03032913107746091 2.474453244607486e-05 -0.0001940144294897979"/>
+      <mass value="4.081497564698486"/>
+      <inertia ixx="0.005573" ixy="1e-06" ixz="-1.9e-05" iyy="0.004352" iyz="-4e-06" izz="0.004393"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.0093 0.0 -0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_roll_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.0093 0.0 -0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_roll_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hip_yaw_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.07390170630152854 9.962373480358716e-05 -0.002378445294013718"/>
+      <mass value="4.470572358545368"/>
+      <inertia ixx="0.004733" ixy="-9e-06" ixz="-0.000228" iyy="0.006111" iyz="-8e-06" izz="0.006235"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.06325 0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_yaw_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.06325 0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_yaw_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_hip_yaw_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.07390170646682584 9.962377136097075e-05 -0.0023784453818592064"/>
+      <mass value="4.4705723411131935"/>
+      <inertia ixx="0.004733" ixy="9e-06" ixz="0.000228" iyy="0.006111" iyz="-8e-06" izz="0.006235"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.06325 0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_yaw_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.06325 0.0 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_yaw_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_hip_pitch_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-8.045084226449006e-05 -0.08157488033480476 0.03975673852831995"/>
+      <mass value="4.43199564289481"/>
+      <inertia ixx="0.00849" ixy="3e-06" ixz="-4e-06" iyy="0.005721" iyz="-0.000287" izz="0.007549"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.1424 0.0 0.03875"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_pitch_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.1424 0.0 0.03875"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_hip_pitch_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_hip_pitch_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.045084226449006e-05 -0.08157488033480476 0.03975673852831995"/>
+      <mass value="4.43199564289481"/>
+      <inertia ixx="0.00849" ixy="-3e-06" ixz="4e-06" iyy="0.005721" iyz="-0.000287" izz="0.007549"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.1424 0.0 0.03875"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_pitch_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.1424 0.0 0.03875"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_hip_pitch_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_thigh_wheel_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.014340044848925454 -0.1505203928999803 0.0003972335107866499"/>
+      <mass value="11.776367101859407"/>
+      <inertia ixx="0.071736" ixy="-0.003651" ixz="-1.8e-05" iyy="0.020597" iyz="-0.000306" izz="0.079415"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.1424 0.11825 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_thigh_wheel_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.1424 0.11825 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_thigh_wheel_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_thigh_wheel_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.014340044848925454 -0.1505203928999803 0.0003972335107866499"/>
+      <mass value="11.776367101859407"/>
+      <inertia ixx="0.071736" ixy="0.003651" ixz="1.8e-05" iyy="0.020597" iyz="-0.000306" izz="0.079415"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.1424 0.11825 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_thigh_wheel_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.1424 0.11825 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_thigh_wheel_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_wheel">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.06356997620942698 -5.012545836596827e-05 -5.327760995034731e-05"/>
+      <mass value="6.388977469824551"/>
+      <inertia ixx="0.054854" ixy="-0.0" ixz="-1e-06" iyy="0.028695" iyz="0.0" izz="0.028695"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.2059 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.2059 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_wheel">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.06356997620942698 -5.012545836596827e-05 -5.327760995034731e-05"/>
+      <mass value="6.388977469824551"/>
+      <inertia ixx="0.054854" ixy="0.0" ixz="1e-06" iyy="0.028695" iyz="0.0" izz="0.028695"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.2059 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.2059 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_wheel.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_knee_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.036971405273357655 -0.1660300623645894 -0.0013928710078339604"/>
+      <mass value="6.932201355092377"/>
+      <inertia ixx="0.050415" ixy="-0.000369" ixz="-2e-06" iyy="0.005488" iyz="0.000171" izz="0.050258"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.17915 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_knee_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.17915 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_knee_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_knee_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.036971405273357655 -0.1660300623645894 -0.0013928710078339604"/>
+      <mass value="6.932201355092377"/>
+      <inertia ixx="0.050415" ixy="0.000369" ixz="2e-06" iyy="0.005488" iyz="0.000171" izz="0.050258"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.17915 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_knee_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.17915 0.3499 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_knee_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_long_tendon_connector_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00010680393854881065 -5.000460617443636e-05 0.029010127435682105"/>
+      <mass value="0.04250175844733602"/>
+      <inertia ixx="3.6e-05" ixy="0.0" ixz="3e-06" iyy="3.6e-05" iyz="-0.0" izz="3e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.120775 0.4749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_long_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.120775 0.4749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_long_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_long_tendon_connector_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00010680393854881065 -5.000460617443636e-05 0.029010127435682105"/>
+      <mass value="0.04250175844733602"/>
+      <inertia ixx="3.6e-05" ixy="-0.0" ixz="-3e-06" iyy="3.6e-05" iyz="-0.0" izz="3e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.120775 0.4749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_long_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.120775 0.4749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_long_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_short_tendon_connector_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00020680393818853227 -5.0034572285473367e-05 0.029010127448811252"/>
+      <mass value="0.04250175844733602"/>
+      <inertia ixx="3.6e-05" ixy="-0.0" ixz="3e-06" iyy="3.6e-05" iyz="0.0" izz="3e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.163825 0.5749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_short_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.163825 0.5749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_short_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_short_tendon_connector_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00020680393818853227 -5.0034572285473367e-05 0.029010127448811252"/>
+      <mass value="0.04250175844733602"/>
+      <inertia ixx="3.6e-05" ixy="0.0" ixz="-3e-06" iyy="3.6e-05" iyz="0.0" izz="3e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.163825 0.5749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_short_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.163825 0.5749 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_short_tendon_connector_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- <link name="left_long_tendon_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.000845101234486112 -0.1074953852625069 0.005010650318331443"/>
+      <mass value="0.08788014524255652"/>
+      <inertia ixx="0.000509" ixy="-0.0" ixz="-0.0" iyy="4e-06" iyz="0.0" izz="0.000506"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.125225 0.47495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_long_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.125225 0.47495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_long_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_long_tendon_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0008451012337903491 -0.1074999997162378 0.0049106498049805505"/>
+      <mass value="0.08788014524255647"/>
+      <inertia ixx="0.000509" ixy="0.0" ixz="0.0" iyy="4e-06" iyz="0.0" izz="0.000506"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.125725 0.47495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_long_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.125725 0.47495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_long_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_short_tendon_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0006571868771749478 -0.057493469589509294 0.003851352991315761"/>
+      <mass value="0.05651964524229545"/>
+      <inertia ixx="0.000116" ixy="0.0" ixz="0.0" iyy="3e-06" iyz="0.0" izz="0.000113"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.159275 0.57495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_short_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.159275 0.57495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_short_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_short_tendon_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0006571868769024436 -0.057500000104569904 0.003751363801314543"/>
+      <mass value="0.056519645242295566"/>
+      <inertia ixx="0.000116" ixy="0.0" ixz="-0.0" iyy="3e-06" iyz="-0.0" izz="0.000113"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.159775 0.57495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_short_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.159775 0.57495 -0.06005"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_short_tendon_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link> -->
+  <link name="left_ankle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0011302779004623842 -0.028286432395680183 0.0002742690928544198"/>
+      <mass value="0.6291183093975233"/>
+      <inertia ixx="0.000367" ixy="7e-06" ixz="-0.0" iyy="0.000209" iyz="3e-06" izz="0.000357"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.142 0.6899 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_ankle_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.142 0.6899 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_ankle_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_ankle_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0011302779004623842 -0.028286432395680183 0.0002742690928544198"/>
+      <mass value="0.6291183093975233"/>
+      <inertia ixx="0.000367" ixy="-7e-06" ixz="0.0" iyy="0.000209" iyz="3e-06" izz="0.000357"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.142 0.6899 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_ankle_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.142 0.6899 -0.0001"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_ankle_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_foot_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00030186809290255745 -0.013615460418342384 -0.04357678195278175"/>
+      <mass value="1.1702691153174818"/>
+      <inertia ixx="0.007853" ixy="-2e-06" ixz="-2e-06" iyy="0.007991" iyz="-0.000137" izz="0.001069"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.143 0.7319 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.142 0.7319 -0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_foot_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.00030186809290255745 -0.013615460418342384 -0.04357678195278175"/>
+      <mass value="1.1702691153174818"/>
+      <inertia ixx="0.007853" ixy="2e-06" ixz="2e-06" iyy="0.007991" iyz="-0.000137" izz="0.001069"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.143 0.7319 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.143 0.7319 0.0"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_link.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_foot_wheel_L">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0027500000004113956 -5.023919830760004e-05 -0.0002499336757649795"/>
+      <mass value="0.030061819599063008"/>
+      <inertia ixx="9e-06" ixy="-0.0" ixz="-0.0" iyy="5e-06" iyz="0.0" izz="5e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.19675 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_wheel_L.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.19675 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_wheel_L.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_foot_wheel_R">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0027500000004113956 -5.023919830760004e-05 -0.0002499336757649795"/>
+      <mass value="0.030061819599063008"/>
+      <inertia ixx="9e-06" ixy="0.0" ixz="0.0" iyy="5e-06" iyz="0.0" izz="5e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.19675 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_wheel_R.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.19675 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_wheel_R.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_foot_wheel_R">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0022499999995878595 -5.023919831903534e-05 -0.0002499336758523818"/>
+      <mass value="0.030061819599062962"/>
+      <inertia ixx="9e-06" ixy="0.0" ixz="-0.0" iyy="5e-06" iyz="0.0" izz="5e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0.08725 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_wheel_R.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.08725 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/left_foot_wheel_R.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_foot_wheel_L">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-0.0022499999995878595 -5.023919831903534e-05 -0.0002499336758523818"/>
+      <mass value="0.030061819599062962"/>
+      <inertia ixx="9e-06" ixy="-0.0" ixz="0.0" iyy="5e-06" iyz="0.0" izz="5e-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="-0.08725 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_wheel_L.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <material name="silver"/>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="-0.08725 0.7328 0.154475"/>
+      <geometry>
+        <mesh filename="file:///home/home/kimm_wheel_legged_robot_ws/src/kimm_wheel_legged_robot_description/meshes/right_foot_wheel_L.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Joints -->
+  <joint name="left_pelvis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.0093 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="left_hip_roll_link"/>
+  </joint>
+  <joint name="right_pelvis_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0093 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="right_hip_roll_link"/>
+  </joint>
+  <joint name="torso_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 0.0862 0.0"/>
+    <parent link="base_link"/>
+    <child link="torso_link"/>
+    <limit effort="120" lower="-3.141593" upper="3.141593" velocity="5.02"/>
+  </joint>
+  <joint name="left_hip_roll_joint" type="fixed">
+    <origin rpy="0.2 0 0" xyz="-0.05395 -0.0 0.0"/>
+    <parent link="left_hip_roll_link"/>
+    <child link="left_hip_yaw_link"/>
+    <limit effort="120" lower="-1.919862" upper="1.919862" velocity="5.02"/>
+  </joint>
+  <joint name="right_hip_roll_joint" type="fixed">
+    <origin rpy="0.2 0 0" xyz="0.05395 0.0 -0.0"/>
+    <parent link="right_hip_roll_link"/>
+    <child link="right_hip_yaw_link"/>
+    <limit effort="120" lower="-1.919862" upper="1.919862" velocity="5.02"/>
+  </joint>
+  <joint name="left_hip_yaw_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.07915 0.0 -0.03875"/>
+    <parent link="left_hip_yaw_link"/>
+    <child link="left_hip_pitch_link"/>
+    <limit effort="120" lower="-0.261799" upper="1.570796" velocity="5.02"/>
+  </joint>
+  <joint name="right_hip_yaw_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.07915 0.0 -0.03875"/>
+    <parent link="right_hip_yaw_link"/>
+    <child link="right_hip_pitch_link"/>
+    <limit effort="120" lower="-0.261799" upper="1.570796" velocity="5.02"/>
+  </joint>
+  <joint name="left_hip_pitch_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 -0.11825 0.03885"/>
+    <parent link="left_hip_pitch_link"/>
+    <child link="left_thigh_wheel_link"/>
+    <limit effort="120" lower="-1.570796" upper="1.570796" velocity="5.02"/>
+  </joint>
+  <joint name="right_hip_pitch_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 -0.11825 0.03885"/>
+    <parent link="right_hip_pitch_link"/>
+    <child link="right_thigh_wheel_link"/>
+    <limit effort="120" lower="-1.570796" upper="1.570796" velocity="5.02"/>
+  </joint>
+  <joint name="left_wheel_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.0635 -0.23165 0.0"/>
+    <parent link="left_thigh_wheel_link"/>
+    <child link="left_wheel"/>
+    <axis xyz="-1.0 -0.0 -0.0"/>
+    <limit effort="120" velocity="5.02"/>
+  </joint>
+  <joint name="right_wheel_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.0635 -0.23165 0.0"/>
+    <parent link="right_thigh_wheel_link"/>
+    <child link="right_wheel"/>
+    <axis xyz="-1.0 -0.0 -0.0"/>
+    <limit effort="120" velocity="5.02"/>
+  </joint>
+  <joint name="left_knee_joint" type="fixed">
+    <origin rpy="-2.0 0 0" xyz="-0.03925 -0.23165 0.0"/>
+    <parent link="left_thigh_wheel_link"/>
+    <child link="left_knee_link"/>
+    <limit effort="120" lower="-1.308997" upper="1.308997" velocity="5.02"/>
+  </joint>
+  <joint name="right_knee_joint" type="fixed">
+    <origin rpy="-2.0 0 0" xyz="0.03675 -0.23165 0.0"/>
+    <parent link="right_thigh_wheel_link"/>
+    <child link="right_knee_link"/>
+    <limit effort="120" lower="-1.308997" upper="1.308997" velocity="5.02"/>
+  </joint>
+  <joint name="left_ankle_pitch_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.03965 -0.34 0.0"/>
+    <parent link="left_knee_link"/>
+    <child link="left_ankle_link"/>
+    <limit effort="24.8" lower="-0.523598" upper="0.523598" velocity="10.8"/>
+  </joint>
+  <joint name="right_ankle_pitch_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.03715 -0.34 0.0"/>
+    <parent link="right_knee_link"/>
+    <child link="right_ankle_link"/>
+    <limit effort="24.8" lower="-0.523598" upper="0.523598" velocity="10.8"/>
+  </joint>
+  <joint name="left_ankle_roll_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.0 -0.042 -0.0001"/>
+    <parent link="left_ankle_link"/>
+    <child link="left_foot_link"/>
+    <limit effort="24.8" lower="-0.523598" upper="0.523598" velocity="10.8"/>
+  </joint>
+  <joint name="right_ankle_roll_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.001 -0.042 -0.0001"/>
+    <parent link="right_ankle_link"/>
+    <child link="right_foot_link"/>
+    <limit effort="24.8" lower="-0.523598" upper="0.523598" velocity="10.8"/>
+  </joint>
+  <joint name="left_foot_wheel_L_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.05475 -0.0009 -0.154475"/>
+    <parent link="left_foot_link"/>
+    <child link="left_foot_wheel_L"/>
+    <axis xyz="1.0 -0.0 -0.0"/>
+  </joint>
+  <joint name="right_foot_wheel_R_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.05475 -0.0009 -0.154475"/>
+    <parent link="right_foot_link"/>
+    <child link="right_foot_wheel_R"/>
+    <axis xyz="-1.0 0.0 -0.0"/>
+  </joint>
+  <joint name="left_foot_wheel_R_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.05475 -0.0009 -0.154475"/>
+    <parent link="left_foot_link"/>
+    <child link="left_foot_wheel_R"/>
+    <axis xyz="-1.0 0.0 0.0"/>
+  </joint>
+  <joint name="right_foot_wheel_L_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.05475 -0.0009 -0.154475"/>
+    <parent link="right_foot_link"/>
+    <child link="right_foot_wheel_L"/>
+    <axis xyz="1.0 -0.0 0.0"/>
+  </joint>
+  <joint name="left_long_tendon_connector_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.060875 -0.125 0.0"/>
+    <parent link="left_knee_link"/>
+    <child link="left_long_tendon_connector_link"/>
+    <limit effort="24.8" lower="-0.523599" upper="0.523599" velocity="10.8"/>
+  </joint>
+  <joint name="right_long_tendon_connector_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.058375 -0.125 0.0"/>
+    <parent link="right_knee_link"/>
+    <child link="right_long_tendon_connector_link"/>
+    <limit effort="24.8" lower="-0.523599" upper="0.523599" velocity="10.8"/>
+  </joint>
+  <joint name="left_short_tendon_connector_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.017825 -0.225 0.0"/>
+    <parent link="left_knee_link"/>
+    <child link="left_short_tendon_connector_link"/>
+    <limit effort="24.8" lower="-0.523599" upper="0.523599" velocity="10.8"/>
+  </joint>
+  <joint name="right_short_tendon_connector_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.015325 -0.225 0.0"/>
+    <parent link="right_knee_link"/>
+    <child link="right_short_tendon_connector_link"/>
+    <limit effort="24.8" lower="-0.523599" upper="0.523599" velocity="10.8"/>
+  </joint>
+  <!-- <joint name="left_long_tendon_upper_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.00445 -5e-05 0.05995"/>
+    <parent link="left_long_tendon_connector_link"/>
+    <child link="left_long_tendon_link"/>
+    <axis xyz="1.0 0.0 0.0"/>
+  </joint>
+  <joint name="right_long_tendon_upper_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.00495 -5e-05 0.05995"/>
+    <parent link="right_long_tendon_connector_link"/>
+    <child link="right_long_tendon_link"/>
+    <axis xyz="1.0 0.0 -0.0"/>
+  </joint>
+  <joint name="left_short_tendon_upper_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.00455 -5e-05 0.05995"/>
+    <parent link="left_short_tendon_connector_link"/>
+    <child link="left_short_tendon_link"/>
+    <axis xyz="1.0 -0.0 -0.0"/>
+  </joint>
+  <joint name="right_short_tendon_upper_joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.00405 -5e-05 0.05995"/>
+    <parent link="right_short_tendon_connector_link"/>
+    <child link="right_short_tendon_link"/>
+    <axis xyz="1.0 0.0 -0.0"/>
+  </joint> -->
+</robot>
