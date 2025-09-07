@@ -1,22 +1,16 @@
-# [This is Example for Readme File]
-
-Short one-line description.  
-예: MPC-based Whole-Body Controller for Humanoid Robots.
+# RCI KIMM Wheel Legged Robot
+This repository contains the URDF model and software for a humanoid robot with wheels on its knees, enabling it to switch between walking and driving modes.
 
 ## Overview
-이 저장소는 [로봇 이름/시뮬레이터]에서 [제어 방법]을 구현한 ROS 2 패키지입니다.  
-본 연구는 [논문명/프로젝트명]의 일부로 수행되었습니다.
+This repository contains the software and models for a unique legged robot developed in collaboration with the Korea Institute of Machinery and Materials (KIMM). The robot is a bipedal humanoid with an innovative design: wheels are integrated into its knees, allowing it to seamlessly switch between two modes of locomotion: walking and driving.
 
 ## Dependencies
 - ROS 2 Humble (>= 2022.05)
 - Python 3.10 / C++17
-- [Pinocchio](https://github.com/stack-of-tasks/pinocchio) >= 2.6.15
-- [acados](https://github.com/acados/acados) >= 0.2.0
 
-설치 예시:
 ```bash
-sudo apt install ros-humble-ros2-control ros-humble-gazebo-ros-pkgs
-pip install pinocchio==2.6.15
+mkdir -p ~/kimm_wheel_legged_robot_ws/src && cd ~/kimm_wheel_legged_robot_ws/src
+git clone
 ```
 
 ## Installation
