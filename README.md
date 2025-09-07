@@ -8,51 +8,34 @@ This repository contains the software and models for a unique legged robot devel
 - ROS 2 Humble (>= 2022.05)
 - Python 3.10 / C++17
 
+## Installation
+1. **Clone the Repository:** Create a workspace and clone this repository recursively.
 ```bash
 mkdir -p ~/kimm_wheel_legged_robot_ws/src && cd ~/kimm_wheel_legged_robot_ws/src
-git clone
+git clone https://github.com/RCILab/RCI_KIMM_legged_robot.git
+```
+2. **Build the Workspace:** Install dependencies and build the packages.
+```bash
+cd ~/kimm_wheel_legged_robot_ws
+rosdep install --from-paths src --ignore-src -r -y
+colcon build --symlink-install
 ```
 
-## Installation
+3. **Source the Environment:** Source the workspace's setup file to make the packages available in your environment.
 ```bash
-mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
-git clone https://github.com/<org>/<repo>.git
-cd ~/ros2_ws
-colcon build --symlink-install
-source install/setup.bash
+echo "source ~/kimm_wheel_legged_robot_ws/install/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 ```
 
 ## Usage
+Follow these steps to check robot model
 ```bash
-ros2 launch <package_name> sim.launch.py world:=lab_world
-ros2 run <package_name> mpc_controller --ros-args -p horizon:=30
-```
-
-## Examples
-1. **MPC Tracking** – Humanoid walking in Gazebo  
-   ```bash
-   ros2 launch mpc_humanoid walking.launch.py
-   ```
-2. **Impedance Control** – 7-DoF Arm tracking trajectory  
-   ```bash
-   ros2 launch impedance_control demo.launch.py
-   ```
-
-## Citation
-If you use this code in your research, please cite:
-
-```bibtex
-@inproceedings{kim2025mpc,
-  title     = {MPC-based Whole-Body Control for Humanoid Robots},
-  author    = {Kim, Sanghyun and Others},
-  booktitle = {IEEE International Conference on Robotics and Automation (ICRA)},
-  year      = {2025}
-}
+ros2 launch kimm_wheel_legged_robot_viz joint_state_publisher_gui.launch.py
 ```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
-Maintainer: [이름] (<email>)  
+Maintainer: [Hyunho Cho] (<chohh7391@khu.ac.kr>)  
 Lab: [RCI Lab @ Kyung Hee University](https://rcilab.khu.ac.kr)
