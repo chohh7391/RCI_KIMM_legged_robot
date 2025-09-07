@@ -4,6 +4,9 @@ This repository contains the URDF model and software for a humanoid robot with w
 ## Overview
 This repository contains the software and models for a unique legged robot developed in collaboration with the Korea Institute of Machinery and Materials (KIMM). The robot is a bipedal humanoid with an innovative design: wheels are integrated into its knees, allowing it to seamlessly switch between two modes of locomotion: walking and driving.
 
+https://github.com/user-attachments/assets/bf0ed73e-b05b-43fd-bd33-afee59358275
+
+
 ## Dependencies
 - ROS 2 Humble (>= 2022.05)
 - Python 3.10 / C++17
